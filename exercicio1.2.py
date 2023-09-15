@@ -1,3 +1,52 @@
+'''Exercício 2. Rinha de robôs (pode ser realizado com interação com o usuário ou não)
+
+Imagine um cenário futurista onde robôs são programados para batalhar entre si em um
+campeonato de máquinas.
+
+Requisitos:
+Classe Robô:
+
+Cada robô possui os seguintes atributos:
+    nome: Uma string representando o nome do robô. pontos_de_vida (PV): Um valor inteiro que inicia com um máximo de 50. Se um robô tentar
+ser instanciado com mais de 50 PV, uma mensagem de erro deve ser exibida e o robô não deve ser criado.
+    energia: Um valor inteiro que sempre começa em 100. 
+    status: Uma string que pode ser "operante" ou "inoperante". Um robô inicia como "operante", mas se seus PV caírem para 0 ou menos, 
+seu status deve mudar para "inoperante".
+
+A classe Robô deve ter os seguintes métodos:
+
+    - atacar(outro_robo, classe_de_ataque): Permite que um robô ataque outro robô. O dano do ataque é aleatório e depende da classe de ataque escolhida.
+    - energizar(): Permite que um robô recupere energia.
+    - recuperar(): Permite que um robô recupere PV à custa de energia.
+    - implodir(outro_robo): Um robô pode se auto-destruir para causar dano ao oponente.
+
+Ataque:
+Os robôs podem atacar em três classes diferentes, que determinam a quantidade de dano e
+energia consumida.Classe 1: Dano entre 1 e 8, consome 10 de energia.
+Classe 2: Dano entre 2 e 12, consome 20 de energia.
+Classe 3: Dano entre 4 e 24, consome 40 de energia.
+
+Energizar e Recuperar:
+energizar(): Recupera 20 de energia.
+recuperar(): Gasta 10 de energia para recuperar 10 de PV. Os PVs não podem exceder o valor inicial do robô.
+
+Implodir:
+Um robô pode decidir se autodestruir com o método implodir(), causando dano a si mesmo igual a todos os seus PVs e causando um dano aleatório 
+entre 10 a 50 ao oponente. Implodir gasta 40 de energia.
+
+
+Tarefa:
+Com base nos requisitos fornecidos, crie a classe Robo e instancie dois robôs, escolha o
+nome de cada um. Em seguida, simule uma batalha entre eles usando os métodos
+fornecidos até que um dos robôs se torne "inoperante". Ao final, anuncie o vencedor da
+batalha.
+Após cada método utilizado o sistema deve responder o máximo possível de informações
+sobre os robôs para acompanhamento (PV atual, energia atual...)
+
+'''
+
+
+
 from random import randint
 
 
@@ -43,9 +92,10 @@ class Robo:
         print(f'\t 💊  {self.nome} recuperou 20 de energia ')
 
     def recuperar(self):
-        self.energia -= 10
-        self.pv += 10
-        print(f'\t❤️‍🩹  {self.nome} recuperou 10 PV')
+        if self.pv >= 40:
+            self.energia -= 10
+            self.pv += 10
+            print(f'\t❤️‍🩹  {self.nome} recuperou 10 PV')
 
     def implodir(self, outro_robo):
         if self.energia >= 40:
