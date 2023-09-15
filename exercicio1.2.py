@@ -92,7 +92,7 @@ class Robo:
         print(f'\t 💊  {self.nome} recuperou 20 de energia ')
 
     def recuperar(self):
-        if self.pv >= 40:
+        if self.pv <= 40:
             self.energia -= 10
             self.pv += 10
             print(f'\t❤️‍🩹  {self.nome} recuperou 10 PV')
