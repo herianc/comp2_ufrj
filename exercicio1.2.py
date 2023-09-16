@@ -7,11 +7,12 @@ Requisitos:
 Classe Robô:
 
 Cada robô possui os seguintes atributos:
-    nome: Uma string representando o nome do robô. pontos_de_vida (PV): Um valor inteiro que inicia com um máximo de 50. Se um robô tentar
-ser instanciado com mais de 50 PV, uma mensagem de erro deve ser exibida e o robô não deve ser criado.
-    energia: Um valor inteiro que sempre começa em 100. 
-    status: Uma string que pode ser "operante" ou "inoperante". Um robô inicia como "operante", mas se seus PV caírem para 0 ou menos, 
-seu status deve mudar para "inoperante".
+    - nome: Uma string representando o nome do robô. pontos_de_vida (PV): Um valor inteiro 
+    que inicia com um máximo de 50. Se um robô tentar ser instanciado com mais de 50 PV, 
+    uma mensagem de erro deve ser exibida e o robô não deve ser criado.
+    - energia: Um valor inteiro que sempre começa em 100. 
+    - status: Uma string que pode ser "operante" ou "inoperante". Um robô inicia como "operante", 
+    mas se seus PV caírem para 0 ou menos, seu status deve mudar para "inoperante".
 
 A classe Robô deve ter os seguintes métodos:
 
@@ -46,7 +47,6 @@ sobre os robôs para acompanhamento (PV atual, energia atual...)
 '''
 
 
-
 from random import randint
 
 
@@ -59,33 +59,33 @@ class Robo:
             self.nome = nome
             self.pv = pv
             self.energia = 100
-        self.status = 'Operante' if self.pv > 0 else 'Inoperante'
+        self.status = 'Operante'
 
     def atacar(self, outro_robo, classe_de_ataque):
-        match classe_de_ataque:
-            # classe 1 - dano 1 e 8 - consome 10 de energia
-            case 1:
-                dano = randint(1, 8)
-                outro_robo.pv -= dano
-                self.energia -= 10
-                print(
-                    f'\t⚔️  {self.nome} causou {dano} de dano em {outro_robo.nome}')
-            # classe 2 - dano 2 e 12 - consome 20 de energia
-            case 2:
-                dano = randint(2, 12)
-                outro_robo.pv -= dano
-                self.energia -= 20
-                print(
-                    f'\t⚔️ ⚔️  {self.nome} causou {dano} de dano em {outro_robo.nome}')
-            # classe 3 - dano 4 e 24 - consome 40 de energia
-            case 3:
-                dano = randint(4, 24)
-                outro_robo.pv -= dano
-                self.energia -= 40
-                print(
-                    f'\t⚔️ ⚔️ ⚔️  {self.nome} causou {dano} de dano em {outro_robo.nome}')
-        if outro_robo.pv > 0:
-            outro_robo.status = 'Inoperante'
+
+        # classe 1 - dano 1 e 8 - consome 10 de energia
+        if classe_de_ataque == 1 and self.energia >= 10:
+            dano = randint(1, 8)
+            outro_robo.pv -= dano
+            self.energia -= 10
+            print(
+                f'\t⚔️  {self.nome} causou {dano} de dano em {outro_robo.nome}')
+        # classe 2 - dano 2 e 12 - consome 20 de energia
+        elif classe_de_ataque == 2 and self.energia >= 20:
+            dano = randint(2, 12)
+            outro_robo.pv -= dano
+            self.energia -= 20
+            print(
+                f'\t⚔️ ⚔️  {self.nome} causou {dano} de dano em {outro_robo.nome}')
+        # classe 3 - dano 4 e 24 - consome 40 de energia
+        elif classe_de_ataque == 3 and self.energia >= 40:
+            dano = randint(4, 24)
+            outro_robo.pv -= dano
+            self.energia -= 40
+            print(
+                f'\t⚔️ ⚔️ ⚔️  {self.nome} causou {dano} de dano em {outro_robo.nome}')
+        else:
+            print(f'{self.nome} não tem energia suficiente para o ataque')
 
     def energizar(self):
         self.energia += 20
@@ -108,7 +108,7 @@ class Robo:
 
 
 robo1 = Robo('C3PO', 50)
-robo2 = Robo('R2D2', 40)
+robo2 = Robo('R2D2', 50)
 turno = 1
 
 print('RINHA DE ROBÔ 🤖🤖')
@@ -116,7 +116,7 @@ while robo1.pv > 0 and robo2.pv > 0:
     print(f'Turno: {turno}')
 
     if robo1.energia > 40:
-        if robo1.pv < 10:
+        if robo1.pv < 5:
             robo1.implodir(robo2)
         elif robo1.pv < 15:
             robo1.recuperar()
@@ -127,7 +127,7 @@ while robo1.pv > 0 and robo2.pv > 0:
         robo1.energizar()
 
     if robo2.energia > 40:
-        if robo2.pv < 10:
+        if robo2.pv < 5:
             robo2.implodir(robo1)
         elif robo2.pv < 15:
             robo2.recuperar()
@@ -138,16 +138,22 @@ while robo1.pv > 0 and robo2.pv > 0:
         robo2.energizar()
 
     if robo2.pv <= 0 and robo1.pv > 0:
+        robo2.status = 'Inoperante'
         print('#'*50)
         print(f'{robo1.nome} é o GRANDE CAMPEÃO INTERGALÁTICO DA RINHA DE ROBOS 🎆🎆🎆🎆')
+        print(f'{robo2.nome} está {robo1.status}')
         print('#'*50)
         break
-    elif robo1.pv <= 0 and robo1.pv > 0:
+
+    elif robo1.pv <= 0 and robo2.pv > 0:
+        robo1.status = 'Inoperante'
         print('#'*50)
         print(
             f'{robo2.nome} é o GRANDE CAMPEÃO INTERGALÁTICO DA RINHA DE ROBOS 🎆🎆🎆🎆')
+        print(f'{robo1.nome} está {robo1.status}')
         print('#'*50)
         break
+
     if robo1.pv <= 0 and robo2.pv <= 0:
         print('#'*50)
         print('Não acho que quem ganhar ou quem perder, nem quem ganhar nem perder, vai ganhar ou perder. Vai todo mundo perder.'.upper())
