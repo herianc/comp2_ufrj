@@ -59,7 +59,7 @@ class Robo:
             self.nome = nome
             self.pv = pv
             self.energia = 100
-        self.status = 'Operante'
+            self.status = 'Operante'
 
     def atacar(self, outro_robo, classe_de_ataque):
 
