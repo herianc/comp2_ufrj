@@ -107,6 +107,7 @@ class Robo:
                 f'\t💣💣{self.nome} se suicidou-se causando {dano} de dano a {outro_robo.nome}')
 
 
+# Instânciando os dois robos
 robo1 = Robo('C3PO', 50)
 robo2 = Robo('R2D2', 50)
 turno = 1
@@ -115,6 +116,7 @@ print('RINHA DE ROBÔ 🤖🤖')
 while robo1.pv > 0 and robo2.pv > 0:
     print(f'Turno: {turno}')
 
+    # Fazendo o robo 1 atacar o robo2
     if robo1.energia > 40:
         if robo1.pv < 5:
             robo1.implodir(robo2)
@@ -126,6 +128,7 @@ while robo1.pv > 0 and robo2.pv > 0:
     else:
         robo1.energizar()
 
+    # Fazendo o robo 2 atacar o robo1
     if robo2.energia > 40:
         if robo2.pv < 5:
             robo2.implodir(robo1)
@@ -137,6 +140,7 @@ while robo1.pv > 0 and robo2.pv > 0:
     else:
         robo2.energizar()
 
+    # Verificando se algum deles morreu (ou os dois)
     if robo2.pv <= 0 and robo1.pv > 0:
         robo2.status = 'Inoperante'
         print('#'*50)
@@ -161,7 +165,10 @@ while robo1.pv > 0 and robo2.pv > 0:
         print('#'*50)
         break
 
+    # Informando os pontos de vida e a energia de ambos os robos
     print(f'{robo1.nome} - 💓: {robo1.pv} - 🔵: {robo1.energia}')
     print(f'{robo2.nome} - 💓: {robo2.pv} - 🔵: {robo2.energia}')
     turno += 1
+
+    # Esse input é para dar uma "pausa" entre cada turno, se o usuário digitar qualquer coisa ele vai pra outra repetição
     input()
