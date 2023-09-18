@@ -145,7 +145,7 @@ while robo1.pv > 0 and robo2.pv > 0:
         robo2.status = 'Inoperante'
         print('#'*50)
         print(f'{robo1.nome} é o GRANDE CAMPEÃO INTERGALÁTICO DA RINHA DE ROBOS 🎆🎆🎆🎆')
-        print(f'{robo2.nome} está {robo1.status}')
+        print(f'{robo2.nome} está {robo2.status}')
         print('#'*50)
         break
 
