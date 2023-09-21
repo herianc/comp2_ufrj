@@ -94,15 +94,15 @@ while True:
         case 1:
             titulo = input('Titulo: ')
             autor = input('Autor: ')
-            biblioteca.adicionar_livro(titulo, autor)
+            biblioteca.adicionar_livro(titulo.upper(), autor.upper())
         case 2:
             biblioteca.listar_livros()
         case 3:
             titulo = input('Titulo: ')
-            biblioteca.emprestar_livro(titulo)
+            biblioteca.emprestar_livro(titulo.upper())
             print(f'')
         case 4:
             titulo = input('Titulo: ')
-            biblioteca.retornar_livro(titulo)
+            biblioteca.retornar_livro(titulo.upper())
         case _:
             print('Escolha inválida')
