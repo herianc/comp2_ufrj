@@ -39,7 +39,7 @@ class Veiculo:
         self.ano = ano
 
     def partir(self):
-        print(f'{self.marca} {self.modelo} está em movimento!')
+        print(f'{self.marca} {self.modelo} do ano {self.ano} está em movimento!')
 
 
 class Motorizado(Veiculo):
