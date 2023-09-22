@@ -39,7 +39,10 @@ class Veiculo:
         self.ano = ano
 
     def partir(self):
-        print(f'{self.marca} {self.modelo} do ano {self.ano} está em movimento!')
+        print(f'{self.marca} {self.modelo} {self.ano} está em movimento!')
+
+    def detalhes(self):
+        print(f'{self.marca} {self.modelo} {self.ano}')
 
 
 class Motorizado(Veiculo):
@@ -73,16 +76,86 @@ class Hibrido(Motorizado, Eletrico):
         Eletrico.__init__(self, marca, modelo, ano, autonomia, tempo_recarga)
 
 
-carro_motorizado = Motorizado(
-    'Chevrolet', 'Onix LT', 2022, '100cv', 'Gasolina')
-carro_motorizado.partir()
-carro_motorizado.alterar_combustivel('Etanol')
-
-
-carro_eletrico = Eletrico('Tesla', 'Model 3', 2020, 500, 30)
-carro_eletrico.alterar_autonomia(600)
-carro_eletrico.partir()
-
-carro3 = Hibrido('Toyota', 'Prius', 2022, '100hp', 'Gasolina', 500, 45, 40, 20)
+carro1 = Motorizado('Chevrolet', 'Onix LT', 2022, '100cv', 'Gasolina')
+carro1.alterar_combustivel('Etanol')
+carro1.partir()
+print()
+carro2 = Eletrico('Tesla', 'Model 3', 2020, 500, 30)
+carro2.alterar_autonomia(600)
+carro2.partir()
+print()
+carro3 = Hibrido('Toyota', 'Model 3', 2019, '100hp',
+                 'Gasolina', 200, 25, 40, 15)
 carro3.partir()
-carro3.alterar_autonomia(600)
+carro3.alterar_combustivel('Etanol')
+carro3.alterar_autonomia(220)
+print()
+
+
+veiculos_motorizados = []
+veiculos_eletricos = []
+veiculos_hibridos = []
+
+# DESAFIO: INTERAÇÃO COM O USUÁRIO
+while True:
+
+    escolha = int(input(
+        '\nCrie o seu carro:\n1 - Motorizado\n2 - Eletrico\n3 - Hibrido\n4 - Listar Veículos\n0 - Sair\n'))
+
+    match escolha:
+        case 1:
+            marca = input('Marca do veículo: ')
+            modelo = input('Modelo: ')
+            ano = int(input('Ano do modelo: '))
+            potencia = input('Potência do motor: ')
+            combustivel = input('Combustível do veículo: ')
+
+            carro_motorizado = Motorizado(
+                marca, modelo, ano, potencia, combustivel)
+            veiculos_motorizados.append(carro_motorizado)
+
+        case 2:
+            marca = input('Marca do veículo: ')
+            modelo = input('Modelo: ')
+            ano = int(input('Ano do modelo: '))
+            autonomia = int(input('Autonomia do veículo: '))
+            tempo_recarga = int(input('O tempo de recarga da bateria: '))
+
+            carro_eletrico = Eletrico(
+                marca, modelo, ano, autonomia, tempo_recarga)
+            veiculos_eletricos.append(carro_eletrico)
+
+        case 3:
+            marca = input('Marca do veículo: ')
+            modelo = input('Modelo: ')
+            ano = int(input('Ano do modelo: '))
+            potencia = input('Potência do motor: ')
+            combustivel = input('Combustível do veículo: ')
+            autonomia = int(input('Autonomia do veículo: '))
+            tempo_recarga = int(input('O tempo de recarga da bateria: '))
+            tanque = int(input('Capacidade do tanque de combustível: '))
+            consumo = int(input('Consumo médio do veículo: '))
+
+            carro_hibrido = Hibrido(marca, modelo, ano, potencia,
+                                    combustivel, autonomia, tempo_recarga, tanque, consumo)
+            veiculos_hibridos.append(carro_hibrido)
+
+        case 4:
+            print('\nVEICULOS MOTORIZADOS:')
+            for i, veiculo in enumerate(veiculos_motorizados):
+                print(f'{veiculo.marca} {veiculo.modelo} {veiculo.ano}')
+
+            print('\nVEICULOS ELÉTRICOS:')
+            for i, veiculo in enumerate(veiculos_eletricos):
+                print(f'{veiculo.marca} {veiculo.modelo} {veiculo.ano}')
+
+            print('\nVEICULOS HÍBRIDOS:')
+            for i, veiculo in enumerate(veiculos_hibridos):
+                print(f'{veiculo.marca} {veiculo.modelo} {veiculo.ano}')
+
+        case 0:
+            print('Encerrando...')
+            break
+
+        case _:
+            print('Inválido!')
