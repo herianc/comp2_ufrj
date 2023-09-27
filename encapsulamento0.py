@@ -27,7 +27,7 @@ class Produto:
         self.__preco = preco
         self.__descricao = descricao
 
-    def __get_info(self):
+    def get_info(self):
         return f'Descrição do produto: {self.__preco}'
 
     @property  # Getter
