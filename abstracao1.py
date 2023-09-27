@@ -59,7 +59,8 @@ class Biblioteca():
         self.livros.append(Livro(titulo, autor))
 
     def listar_livros(self):
-        print('-'*5, 'LISTAGEM DE LIVROS DA BIBLIOTECA', '-'*5)
+        print('-'*5, 'LISTAGEM DE LIVROS DA \
+        BIBLIOTECA', '-'*5)
         for i, livro in enumerate(self.livros):
             print(
                 f'{i+1} - {livro.titulo}, {livro.autor}  -  Status: {livro.status.upper()}')

@@ -142,15 +142,15 @@ while True:
 
         case 4:
             print('\nVEICULOS MOTORIZADOS:')
-            for i, veiculo in enumerate(veiculos_motorizados):
+            for veiculo in veiculos_motorizados:
                 print(f'{veiculo.marca} {veiculo.modelo} {veiculo.ano}')
 
             print('\nVEICULOS ELÉTRICOS:')
-            for i, veiculo in enumerate(veiculos_eletricos):
+            for veiculo in veiculos_eletricos:
                 print(f'{veiculo.marca} {veiculo.modelo} {veiculo.ano}')
 
             print('\nVEICULOS HÍBRIDOS:')
-            for i, veiculo in enumerate(veiculos_hibridos):
+            for veiculo in veiculos_hibridos:
                 print(f'{veiculo.marca} {veiculo.modelo} {veiculo.ano}')
 
         case 0:
