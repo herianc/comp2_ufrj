@@ -42,6 +42,10 @@ class Produto:
     def descricao(self):
         return self.__descricao
 
+    @descricao.setter
+    def descricao(self, novo_valor):
+        self.__descricao = novo_valor
+
 
 class ProdutoImportado(Produto):
     def __init__(self, preco: int, descricao: str, taxa_importacao: int):

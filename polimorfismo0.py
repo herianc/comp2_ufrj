@@ -104,7 +104,7 @@ cadeira.desconto()
 cadeira.detalhes()
 print()
 
-livro = Livro('Dom Casmurro', 20, 'Machado de Assis', '480')
+livro = Livro('Dom Casmurro', 20, 'Machado de Assis', '208')
 livro.detalhes()
 livro.desconto()
 livro.detalhes()
