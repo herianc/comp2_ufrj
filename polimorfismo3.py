@@ -87,12 +87,13 @@ class Roupa(Produto):
         return f'Preço descontado: R${self.preco + self.preco * 0.05}'
 
     def detalhes(self):
-        return f'Nome: {self.nome}, Preço: R${self.preco}, Marca: {self.tamanho}'
+        return f'Nome: {self.nome}, Preço: R${self.preco}, Tamanho: {self.tamanho}'
 
 
 produtos = [Livro('Dom Casmurro', 20, 'Machado de Assis', '208'),
             Produto('Cadeira', 45),
             Roupa('Camisa do Vascão', 220, 'M')]
+
 
 for produto in produtos:
     print(produto.detalhes())
