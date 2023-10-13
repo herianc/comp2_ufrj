@@ -47,10 +47,10 @@ class Produto:
         self.nome = nome
 
     def desconto(self):
-        return f'Preço descontado: R${self.preco + self.preco * 0.05}'
+        return f'Preço descontado: R${self.preco - self.preco * 0.05}'
 
     def detalhes(self):
-        return f'Nome: {self.nome}, Preço: R${self.preco}'
+        return f'Nome: {self.nome}, Preço: R${self.preco:.2f}'
 
 
 class Livro(Produto):
@@ -60,10 +60,10 @@ class Livro(Produto):
         self.paginas = paginas
 
     def desconto(self):
-        return f'Preço descontado: R${self.preco + self.preco * 0.1}'
+        return f'Preço descontado: R${self.preco - self.preco * 0.1}'
 
     def detalhes(self):
-        return f'Nome: {self.nome}, Preço: R${self.preco} Autor: {self.autor}, Páginas: {self.paginas}'
+        return f'Nome: {self.nome}, Preço: R${self.preco:.2f} Autor: {self.autor}, Páginas: {self.paginas}'
 
 
 class Eletronico(Produto):
@@ -72,10 +72,10 @@ class Eletronico(Produto):
         self.marca = marca
 
     def desconto(self):
-        return f'Preço descontado: R${self.preco + self.preco * 0.08}'
+        return f'Preço descontado: R${self.preco - self.preco * 0.08:.2f}'
 
     def detalhes(self):
-        return 'Nome: {self.nome}, Preço: R${self.preco}, Marca: {self.marca}'
+        return f'Nome: {self.nome}, Preço: R${self.preco:.2f}, Marca: {self.marca}'
 
 
 class Roupa(Produto):
@@ -84,7 +84,7 @@ class Roupa(Produto):
         self.tamanho = tamanho
 
     def desconto(self):
-        return f'Preço descontado: R${self.preco + self.preco * 0.05}'
+        return f'Preço descontado: R${self.preco - self.preco * 0.05:.2f}'
 
     def detalhes(self):
         return f'Nome: {self.nome}, Preço: R${self.preco}, Tamanho: {self.tamanho}'
