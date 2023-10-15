@@ -66,7 +66,14 @@ class ItemDescricao(ABC):
 
     @abstractmethod
     def descricao(self):
-        ...
+        if self.__class__ == Livro:
+            print(f'Livro: {self.titulo} - Autor: {self.criador}')
+        elif self.__class__ == CD:
+            print(
+                f'CD: {self.titulo} - Artista: {self.criador}')
+        elif self.__class__ == DVD:
+            print(
+                f'DVD: {self.titulo} - Diretor: {self.criador}')
 
     @abstractmethod
     def emprestar(self):
@@ -82,8 +89,7 @@ class Livro(ItemDescricao):
         super().__init__(titulo, criador)
 
     def descricao(self):
-        print(
-            f'{self.__class__.__name__}: {self.titulo} - Autor: {self.criador}')
+        return super().descricao()
 
     def emprestar(self):
         return super().emprestar()
@@ -97,8 +103,7 @@ class CD(ItemDescricao):
         super().__init__(titulo, criador)
 
     def descricao(self):
-        print(
-            f'{self.__class__.__name__}: {self.titulo} - Artista: {self.criador}')
+        return super().descricao()
 
     def emprestar(self):
         return super().emprestar()
@@ -112,8 +117,7 @@ class DVD(ItemDescricao):
         super().__init__(titulo, criador)
 
     def descricao(self):
-        print(
-            f'{self.__class__.__name__}: {self.titulo} - Diretor: {self.criador}')
+        return super().descricao()
 
     def emprestar(self):
         return super().emprestar()
