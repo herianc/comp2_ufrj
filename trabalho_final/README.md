@@ -12,6 +12,7 @@
 **Uso de bibliotecas diversas**: Biblioteca `time` para cronometrar o tempo de resposta do usuário/ `Tkinter` para interface gráfica
 
 **Materiais em vídeo:**
+
 [Jogo da Forca em Python - Vídeo Completo](https://www.youtube.com/watch?si=wVwh-pcJIgYVkPqp&v=_A_2aTFHzJ0&feature=youtu.be)
 
 [Curso  Python Tkinter - Aula 1 - Criação e configuração da janela - Tutorial](https://youtu.be/RtrZcoVD1WM?si=H6we8Rri5ZHhgw11)
