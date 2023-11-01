@@ -2,6 +2,7 @@
 
 def forca(palavra, chances) -> bool:
     letras_tentadas = []
+    # Usando a estrutura de dados Set para eliminar repetições
     letras_tentadas = set(letras_tentadas)
 
     while True:
@@ -24,7 +25,7 @@ def forca(palavra, chances) -> bool:
         letras_tentadas.add(tentativa)
         if tentativa not in palavra:
             chances -= 1
-            print(f'Você tem {chances} chances')
+            print(f'Você perdeu uma chance. {chances} chances restantes')
 
         ganhou = True
         for letra in palavra:
@@ -32,7 +33,6 @@ def forca(palavra, chances) -> bool:
                 ganhou = False
 
         if chances == 0:
-            global perdeu
             perdeu = True
             return perdeu
 
