@@ -27,13 +27,17 @@ class ContaPoupanca(ContaBancaria):
                     'Número de meses deve ser não negativo!')
 
             else:
+                self.__str__()
                 projecao = self.saldo + self.saldo * (self.juros/100) * meses
                 print(
                     f'Daqui a {meses} meses o seu saldo será de R${projecao}')
-
+        except ValueError:
+            raise TransacaoBancariaException(
+                'Entrada para meses inválida! Digite apenas números')
+        except:
+            raise TransacaoBancariaException('Erro inesperado!')
         finally:
-            self.__str__()
-            print('Transação concluída!')
+            print('Transação concluída!\n')
 
     def saque(self, valor):
         try:
@@ -43,16 +47,36 @@ class ContaPoupanca(ContaBancaria):
             elif valor < 0:
                 raise TransacaoBancariaException('Valor de saque inválido!')
             else:
+                self.__str__()
                 self.saldo -= valor
                 print(
                     f'Valor retirado: R${valor:.2f} - Saldo atual: R${self.saldo:.2f}')
+        except ValueError:
+            raise TransacaoBancariaException(
+                'Entrada inválida! Digite apenas números.')
+        except:
+            raise TransacaoBancariaException('Erro inesperado!')
         finally:
-            print('Transação Concluída!')
-            self.__str__()
+            print('Transação Concluída!\n')
+
+    def deposito(self, valor):
+        try:
+            if valor <= 0:
+                raise TransacaoBancariaException('Valor de depósito inválido!')
+            else:
+                self.__str__()
+                self.saldo += valor
+                print(
+                    f'Valor depositado: R${valor:.2f} - Saldo: R${self.saldo:.2f}')
+        except ValueError:
+            raise TransacaoBancariaException(
+                'Entrada inválida! Digite apenas números.')
+        finally:
+            print('Transação concluída!')
 
     def __str__(self) -> str:
         print(
-            f'Conta Poupança de {self.titular} - Saldo: R$ {self.saldo:.2f} - Taxa de Juros: {self.juros}%\n')
+            f'Conta Poupança de {self.titular} - Saldo: R$ {self.saldo:.2f} - Taxa de Juros: {self.juros}%')
 
 
 conta1 = ContaBancaria(500.00, 'José')

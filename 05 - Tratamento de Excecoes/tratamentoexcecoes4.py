@@ -52,7 +52,7 @@ class Cliente:
                 'Veículo ainda não foi alugado.Não é possivel devolve-lo')
 
     def __str__(self) -> str:
-        return f"Cliente: {self.nome} - Veículos alugados: {len(self.veiculos_alugados)}:"
+        return f"Cliente: {self.nome} - Veículos alugados: {len(self.veiculos_alugados)}"
 
 
 class Garagem:
@@ -67,7 +67,7 @@ class Garagem:
             print(veiculo)
 
     def __str__(self) -> str:
-        return f'Garagem: {len(self.veiculos)} veículos disponíveis".'
+        return f'Garagem: {len(self.veiculos)} veículos disponíveis.'
 
 
 toyota = Veiculo('VAS777', 'Toyota Supra')
