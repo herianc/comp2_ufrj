@@ -11,15 +11,15 @@ class Tema(ABC):
         super().__init__()
 
     @abstractclassmethod
-    def facil(self):
+    def nivel_facil(self):
         ...
 
     @abstractclassmethod
-    def medio(self):
+    def nivel_medio(self):
         ...
 
     @abstractclassmethod
-    def dificil(self):
+    def nivel_dificil(self):
         ...
 
 
@@ -32,53 +32,59 @@ class Estatistica(Tema):
         self.palavras_dificeis = ['HISTOGRAMA',
                                   'PROBABILIDADE', 'REGRESSAO', 'VARIANCIA', 'DISTRIBUICAO']
 
-    def facil(self):
+    def nivel_facil(self):
         # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_faceis)
+        pontos_no_nivel = 0
         print('NÍVEL FÁCIL'.center(50))
 
         for i, palavra in enumerate(self.palavras_faceis, start=1):
-            chances = 3
+            chances = 7
             print(f'Você tem {chances} chances')
             print(f'\n\nRodada {i}'.center(50))
-            self.derrota = forca(palavra, chances)
+            resultado = forca(palavra, chances, 250)
+            pontos_no_nivel += resultado[1]
 
-            if self.derrota:
+            if not resultado[0]:
                 print(f'Jogo encerrado! Você jogou {i} rodadas')
-                break
-        return True
+                return False, pontos_no_nivel
+        return True, pontos_no_nivel
 
-    def medio(self):
-        # Embaralhando a ordem das palavras
+    def nivel_medio(self):
+       # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_medias)
+        pontos_no_nivel = 0
         print('NÍVEL MÉDIO'.center(50))
 
         for i, palavra in enumerate(self.palavras_medias, start=1):
-            chances = 3
+            chances = 7
             print(f'Você tem {chances} chances')
             print(f'\n\nRodada {i}'.center(50))
-            self.derrota = forca(palavra, chances)
+            resultado = forca(palavra, chances, 500)
+            pontos_no_nivel += resultado[1]
 
-            if self.derrota:
+            if not resultado[0]:
                 print(f'Jogo encerrado! Você jogou {i} rodadas')
-                return False
-        return True
+                return False, pontos_no_nivel
+        return True, pontos_no_nivel
 
-    def dificil(self):
+    def nivel_dificil(self):
         # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_dificeis)
-        print('NÍVEL DIFÍCIL'.center(50))
+        pontos_no_nivel = 0
+        print('NÍVEL DIFÍCIL!'.center(50))
 
         for i, palavra in enumerate(self.palavras_dificeis, start=1):
-            chances = 3
+            chances = 7
             print(f'Você tem {chances} chances')
             print(f'\n\nRodada {i}'.center(50))
-            self.derrota = forca(palavra, chances)
+            resultado = forca(palavra, chances, 1000)
+            pontos_no_nivel += resultado[1]
 
-            if self.derrota:
+            if not resultado[0]:
                 print(f'Jogo encerrado! Você jogou {i} rodadas')
-                return False
-        return True
+                return False, pontos_no_nivel
+        return True, pontos_no_nivel
 
 
 class Geociencias(Tema):
@@ -88,52 +94,30 @@ class Geociencias(Tema):
         self.palavras_faceis = ['ROCHA', 'SOLO', 'FOSSIL']
         self.palavras_medias = ['CRATERA', 'MINERIO', 'PLACAS']
         self.palavras_dificeis = [
-            'CLIMATOLOGIA', 'TEMPERATURA', 'HUMIDADE', 'PRECIPITACAO', 'ESTRATOSFERA']
+            'CLIMATOLOGIA', 'TEMPERATURA', 'UMIDADE', 'PRECIPITACAO', 'ESTRATOSFERA']
 
-    def facil(self):
+    def nivel_facil(self):
         # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_faceis)
+        pontos_no_nivel = 0
 
         for i, palavra in enumerate(self.palavras_faceis, start=1):
-            chances = 3
+            chances = 7
             print(f'Você tem {chances} chances')
             print(f'\n\nRodada {i}'.center(50))
-            self.derrota = forca(palavra, chances)
+            resultado = forca(palavra, chances, 250)
+            pontos_no_nivel += resultado[1]
 
-            if self.derrota:
+            if not resultado[0]:
                 print(f'Jogo encerrado! Você jogou {i} rodadas')
-                return False
-        return True
+                return False, pontos_no_nivel
+        return True, pontos_no_nivel
 
-    def medio(self):
-        # Embaralhando a ordem das palavras
-        random.shuffle(self.palavras_medias)
+    def nivel_medio(self):
+        ...
 
-        for i, palavra in enumerate(self.palavras_medias, start=1):
-            chances = 3
-            print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
-            self.derrota = forca(palavra, chances)
-
-            if self.derrota:
-                print(f'Jogo encerrado! Você jogou {i} rodadas')
-                return False
-        return True
-
-    def dificil(self):
-        # Embaralhando a ordem das palavras
-        random.shuffle(self.palavras_dificeis)
-
-        for i, palavra in enumerate(self.palavras_dificeis, start=1):
-            chances = 3
-            print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
-            self.derrota = forca(palavra, chances)
-
-            if self.derrota:
-                print(f'Jogo encerrado! Você jogou {i} rodadas')
-                return False
-        return True
+    def nivel_dificil(self):
+        ...
 
 
 class Jogador:

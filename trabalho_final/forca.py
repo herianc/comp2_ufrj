@@ -1,6 +1,6 @@
 # logica do jogo da forca que será importada para o arquivo main.py
 
-def forca(palavra, chances) -> bool:
+def forca(palavra, chances, pontos) -> bool:
     letras_tentadas = []
     # Usando a estrutura de dados Set para eliminar repetições
     letras_tentadas = set(letras_tentadas)
@@ -12,7 +12,7 @@ def forca(palavra, chances) -> bool:
             else:
                 print('_', end=' ')
 
-        tentativa = input('\n\nDigite uma letra: ').upper()
+        tentativa = input('\n\nLetra: ').upper()
 
         # Tratando os erros de entrada
         if len(tentativa) > 1:
@@ -25,6 +25,7 @@ def forca(palavra, chances) -> bool:
         letras_tentadas.add(tentativa)
         if tentativa not in palavra:
             chances -= 1
+            pontos -= pontos/10
             print(f'Você perdeu uma chance. {chances} chances restantes')
 
         ganhou = True
@@ -33,14 +34,10 @@ def forca(palavra, chances) -> bool:
                 ganhou = False
 
         if chances == 0:
-            perdeu = True
-            return perdeu
+            print(f'\nPerdeu! A palavra era {palavra}')
+            pontos = 0
+            return ganhou, pontos
 
         if ganhou:
-            break
-
-    if ganhou:
-        print(f'\nAcertou! A palavra é {palavra}')
-
-    else:
-        print(f'\nPerdeu! A palavra era {palavra}')
+            print(f'\nAcertou! A palavra é {palavra}')
+            return ganhou, pontos
