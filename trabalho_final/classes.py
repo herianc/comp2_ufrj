@@ -165,7 +165,7 @@ class Geociencias(Tema):
 class Jogador:
     # Classe para instanciar o jogador e armazenar sua pontuação
     def __init__(self, nome) -> None:
-        self.nome = nome if nome != '' else 'Anônimo'
+        self.nome = nome if nome != '' else 'ANONIMO'
         self.__pontuacao = 0  # Atributo privado para evitar que o jogador tenha acesso
 
     @property

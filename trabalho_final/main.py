@@ -2,6 +2,7 @@ import classes
 from os import system
 pts = 0
 
+
 escolha = input(
     'JOGO DA FORCA - MENU\n1 - Estatística\n2 - Geociências\n3 - Sair\n')
 
@@ -19,6 +20,7 @@ match escolha:
         if resultado[0]:
             resultado = jogo.nivel_dificil()
             pts += resultado[1]
+
     case '2':
         jogo = classes.Geociencias()
 
@@ -32,15 +34,22 @@ match escolha:
         if resultado[0]:
             resultado = jogo.nivel_dificil()
             pts += resultado[1]
+    case '3':
+        pass
     case _:
         print('Entrada inválida!')
 
-
-nome = input('\n\nDigite o seu nome: ')
+nome = input('\n\nDigite o seu nome: ').upper().lstrip().rstrip()
 
 jogador = classes.Jogador(nome)
 jogador.adicionar_pontuacao(pts)
 
-system('cls')
-print('PONTUAÇÃO FINAL'.center(50, '-'))
-print(f'JOGADOR: {jogador.nome} - {jogador.pontuacao} PTS')
+
+with open('pontuacao.txt', 'a') as arquivo:
+    arquivo.write(f'\nJOGADOR: {jogador.nome} - {jogador.pontuacao} PTS')
+    arquivo.flush()
+
+
+with open('pontuacao.txt', 'r') as arquivo:
+    for linha in arquivo.readlines():
+        print(linha, end='')

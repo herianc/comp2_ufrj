@@ -1,4 +1,6 @@
 # logica do jogo da forca que será importada para o arquivo main.py
+from os import system
+
 
 def forca(palavra, chances, pontos) -> bool:
     letras_tentadas = []
@@ -6,6 +8,7 @@ def forca(palavra, chances, pontos) -> bool:
     letras_tentadas = set(letras_tentadas)
 
     while True:
+
         for letra in palavra:
             if letra in letras_tentadas:
                 print(letra, end=' ')
