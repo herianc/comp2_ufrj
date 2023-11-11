@@ -56,3 +56,6 @@ system('cls')
 with open('pontuacao.txt', 'r') as arquivo:
     for linha in arquivo.readlines():
         print(linha, end='')
+
+
+input('Aperte qualquer tecla para sair')
