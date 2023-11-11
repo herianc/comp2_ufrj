@@ -39,15 +39,18 @@ match escolha:
     case _:
         print('Entrada inválida!')
 
-nome = input('\n\nDigite o seu nome: ').upper().lstrip().rstrip()
+nome = input('\n\nDigite o seu nome: ').upper().strip()
 
-jogador = classes.Jogador(nome)
-jogador.adicionar_pontuacao(pts)
+if pts != 0:
+    jogador = classes.Jogador(nome)
+    jogador.adicionar_pontuacao(pts)
 
+    with open('pontuacao.txt', 'a') as arquivo:
+        arquivo.write(
+            f'\nJOGADOR: {jogador.nome} - {jogador.pontuacao:.2f} PTS')
 
-with open('pontuacao.txt', 'a') as arquivo:
-    arquivo.write(f'\nJOGADOR: {jogador.nome} - {jogador.pontuacao} PTS')
-    arquivo.flush()
+system('cls')
+# fazer funções que armazenem e mostrem a pontuação no arquivo.
 
 
 with open('pontuacao.txt', 'r') as arquivo:

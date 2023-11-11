@@ -10,6 +10,8 @@ def forca(palavra, chances, pontos) -> bool:
     while True:
 
         for letra in palavra:
+            if letra == ' ':
+                letras_tentadas.add(' ')
             if letra in letras_tentadas:
                 print(letra, end=' ')
             else:

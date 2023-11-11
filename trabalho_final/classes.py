@@ -29,10 +29,14 @@ class Estatistica(Tema):
     # Classe para as palavras relacionadas a Estatística
     def __init__(self) -> None:
         super().__init__()
-        self.palavras_faceis = ['DADOS', 'DESVIO', 'MEDIA']
-        self.palavras_medias = ['AMOSTRA', 'MEDIANA', 'VARIAVEL', 'GRAFICO']
-        self.palavras_dificeis = ['HISTOGRAMA',
-                                  'PROBABILIDADE', 'REGRESSAO', 'VARIANCIA', 'DISTRIBUICAO']
+        self.palavras_faceis = ['AMOSTRA', 'VARIAVEL', 'POPULACAO', 'DADOS',
+                                'DESVIO', 'MEDIANA', 'MEDIA', 'MODA', 'EVENTOS', 'GRAFICO']
+
+        self.palavras_medias = ['PARAMETRO', 'VIES', 'ESPERANCA', 'BINOMIAL', 'INFERENCIA',
+                                'ANALISE DESCRITIVA', 'QUANTIS', 'ESTIMADOR', 'AMOSTRA ALEATORIA', 'PROPORCAO']
+
+        self.palavras_dificeis = ['HISTOGRAMA', 'PROBABILIDADE', 'REGRESSAO', 'VARIANCIA', 'DISTRIBUICAO',
+                                  'POISSON', 'TEOREMA DE BAYES', 'BERNOULLI', 'COEFICIENTE DE VARIACAO', 'OUTLIERS']
 
     def nivel_facil(self):
         # Embaralhando a ordem das palavras
@@ -40,11 +44,11 @@ class Estatistica(Tema):
         pontos_no_nivel = 0
         print('NÍVEL FÁCIL'.center(50))
 
-        for i, palavra in enumerate(self.palavras_faceis, start=1):
+        for i, palavra in enumerate(self.palavras_faceis[:3], start=1):
             system('cls')
             chances = 7
             print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
+            print(f'\n\nNível Fácil - Rodada {i}'.center(50))
             resultado = forca(palavra, chances, 250)
             pontos_no_nivel += resultado[1]
 
@@ -60,11 +64,11 @@ class Estatistica(Tema):
         pontos_no_nivel = 0
         print('NÍVEL MÉDIO'.center(50))
 
-        for i, palavra in enumerate(self.palavras_medias, start=1):
+        for i, palavra in enumerate(self.palavras_medias[:3], start=1):
             system('cls')
             chances = 7
             print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
+            print(f'\n\nNível Médio - Rodada {i}'.center(50))
             resultado = forca(palavra, chances, 500)
             pontos_no_nivel += resultado[1]
 
@@ -80,11 +84,11 @@ class Estatistica(Tema):
         pontos_no_nivel = 0
         print('NÍVEL DIFÍCIL!'.center(50))
 
-        for i, palavra in enumerate(self.palavras_dificeis, start=1):
+        for i, palavra in enumerate(self.palavras_dificeis[:3], start=1):
             system('cls')
             chances = 7
             print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
+            print(f'\n\nNível Difícil - Rodada {i}'.center(50))
             resultado = forca(palavra, chances, 1000)
             pontos_no_nivel += resultado[1]
 

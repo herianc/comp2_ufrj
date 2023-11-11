@@ -9,7 +9,7 @@
 - **Classe abstrata/interface** - Classe Tema que será molde para os temas do jogo (Geociências, Estatística); Classe Jogador  
 - **Tratamento de exceções** - Tratamento de entradas inválidas do jogador.
 - **Persistência de dados**: Armazenamento da pontuação do jogador
-- **Uso de bibliotecas diversas**:  Módulo `time` para cronometrar o tempo de resposta do usuário e módulo `Tkinter` para interface gráfica
+- **Uso de bibliotecas diversas**: Módulo `Tkinter` para interface gráfica, Módulo `random` para dinamização do jogo
 
 **Materiais em vídeo:**
 
