@@ -51,11 +51,6 @@ if pts != 0:
 
 system('cls')
 # fazer funções que armazenem e mostrem a pontuação no arquivo.
-
-
 with open('pontuacao.txt', 'r') as arquivo:
     for linha in arquivo.readlines():
         print(linha, end='')
-
-
-input('Aperte qualquer tecla para sair')

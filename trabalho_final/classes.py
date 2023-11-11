@@ -29,14 +29,14 @@ class Estatistica(Tema):
     # Classe para as palavras relacionadas a Estatística
     def __init__(self) -> None:
         super().__init__()
-        self.palavras_faceis = ['AMOSTRA', 'VARIAVEL', 'POPULACAO', 'DADOS',
-                                'DESVIO', 'MEDIANA', 'MEDIA', 'MODA', 'EVENTOS', 'GRAFICO']
+        self.__palavras_faceis = ['AMOSTRA', 'VARIAVEL', 'POPULACAO', 'DADOS',
+                                  'DESVIO', 'MEDIANA', 'MEDIA', 'MODA', 'EVENTOS', 'GRAFICO']
 
-        self.palavras_medias = ['PARAMETRO', 'VIES', 'ESPERANCA', 'BINOMIAL', 'INFERENCIA',
-                                'ANALISE DESCRITIVA', 'QUANTIS', 'ESTIMADOR', 'AMOSTRA ALEATORIA', 'PROPORCAO']
+        self.__palavras_medias = ['PARAMETRO', 'VIES', 'ESPERANCA', 'BINOMIAL', 'INFERENCIA',
+                                  'ANALISE DESCRITIVA', 'QUANTIS', 'ESTIMADOR', 'AMOSTRA ALEATORIA', 'PROPORCAO']
 
-        self.palavras_dificeis = ['HISTOGRAMA', 'PROBABILIDADE', 'REGRESSAO', 'VARIANCIA', 'DISTRIBUICAO',
-                                  'POISSON', 'TEOREMA DE BAYES', 'BERNOULLI', 'COEFICIENTE DE VARIACAO', 'OUTLIERS']
+        self.__palavras_dificeis = ['HISTOGRAMA', 'PROBABILIDADE', 'REGRESSAO', 'VARIANCIA', 'DISTRIBUICAO',
+                                    'POISSON', 'TEOREMA DE BAYES', 'BERNOULLI', 'COEFICIENTE DE VARIACAO', 'OUTLIERS']
 
     def nivel_facil(self):
         # Embaralhando a ordem das palavras
@@ -95,19 +95,31 @@ class Estatistica(Tema):
             sleep(2)
         return True, pontos_no_nivel
 
+    @property
+    def palavras_faceis(self):
+        return self.__palavras_faceis
+
+    @property
+    def palavras_medias(self):
+        return self.__palavras_medias
+
+    @property
+    def palavras_dificeis(self):
+        return self.__palavras_dificeis
+
 
 class Geociencias(Tema):
     # Classe para as palavras relacionadas ao BCMT
     def __init__(self) -> None:
         super().__init__()
-        self.palavras_faceis = ['METEORO', 'MEMORIA',  'MINERAIS', 'CAVERNA',
-                                'ROCHAS', 'TEMPO', 'TERRA', 'PLANETA', 'CIENCIA', 'BACIA']
+        self.__palavras_faceis = ['METEORO', 'MEMORIA',  'MINERAIS', 'CAVERNA',
+                                  'ROCHAS', 'TEMPO', 'TERRA', 'PLANETA', 'CIENCIA', 'BACIA']
 
-        self.palavras_medias = ['JAZIDAS',  'SEDIMENTAR',  'METEORITO', 'ARGILITOS',
-                                'GEOLOGIA', 'ATMOSFERA', 'TRANSPORTE', 'HORIZONTE', 'ESTRUTURA', 'SATELITE']
+        self.__palavras_medias = ['JAZIDAS',  'SEDIMENTAR',  'METEORITO', 'ARGILITOS',
+                                  'GEOLOGIA', 'ATMOSFERA', 'TRANSPORTE', 'HORIZONTE', 'ESTRUTURA', 'SATELITE']
 
-        self.palavras_dificeis = ['SENSORIAMENTO REMOTO', 'TOPOGRAFIA', 'SISMOLOGIA', 'TEMPO GEOLOGICO',
-                                  'PLACAS TECTONICAS', 'GEOPROCESSAMENTO', 'CONGLOMERADO',  'QUATERNARIO', 'FANEROZOICO',  'PRE-CAMBRIANO']
+        self.__palavras_dificeis = ['SENSORIAMENTO REMOTO', 'TOPOGRAFIA', 'SISMOLOGIA', 'TEMPO GEOLOGICO',
+                                    'PLACAS TECTONICAS', 'GEOPROCESSAMENTO', 'CONGLOMERADO',  'QUATERNARIO', 'FANEROZOICO',  'PRE-CAMBRIANO']
 
     def nivel_facil(self):
         # Embaralhando a ordem das palavras
@@ -165,6 +177,18 @@ class Geociencias(Tema):
                 return False, pontos_no_nivel
             sleep(2)
         return True, pontos_no_nivel
+
+    @property
+    def palavras_faceis(self):
+        return self.__palavras_faceis
+
+    @property
+    def palavras_medias(self):
+        return self.__palavras_medias
+
+    @property
+    def palavras_dificeis(self):
+        return self.__palavras_dificeis
 
 
 class Jogador:
