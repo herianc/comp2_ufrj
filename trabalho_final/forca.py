@@ -26,6 +26,9 @@ def forca(palavra, chances, pontos) -> bool:
         if tentativa.isdigit():
             print('Digite apenas letras!')
             continue
+        if tentativa in letras_tentadas:
+            print(f'{tentativa} já foi tentada! Tente outra letra')
+            continue
 
         letras_tentadas.add(tentativa)
         if tentativa not in palavra:
