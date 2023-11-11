@@ -42,7 +42,6 @@ class Estatistica(Tema):
         # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_faceis)
         pontos_no_nivel = 0
-        print('NÍVEL FÁCIL'.center(50))
 
         for i, palavra in enumerate(self.palavras_faceis[:3], start=1):
             system('cls')
@@ -62,7 +61,6 @@ class Estatistica(Tema):
        # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_medias)
         pontos_no_nivel = 0
-        print('NÍVEL MÉDIO'.center(50))
 
         for i, palavra in enumerate(self.palavras_medias[:3], start=1):
             system('cls')
@@ -82,7 +80,6 @@ class Estatistica(Tema):
         # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_dificeis)
         pontos_no_nivel = 0
-        print('NÍVEL DIFÍCIL!'.center(50))
 
         for i, palavra in enumerate(self.palavras_dificeis[:3], start=1):
             system('cls')
@@ -103,21 +100,25 @@ class Geociencias(Tema):
     # Classe para as palavras relacionadas ao BCMT
     def __init__(self) -> None:
         super().__init__()
-        self.palavras_faceis = ['ROCHA', 'SOLO', 'FOSSIL']
-        self.palavras_medias = ['CRATERA', 'MINERIO', 'PLACAS']
-        self.palavras_dificeis = [
-            'CLIMATOLOGIA', 'TEMPERATURA', 'UMIDADE', 'PRECIPITACAO', 'ESTRATOSFERA']
+        self.palavras_faceis = ['METEORO', 'MEMORIA',  'MINERAIS', 'CAVERNA',
+                                'ROCHAS', 'TEMPO', 'TERRA', 'PLANETA', 'CIENCIA', 'BACIA']
+
+        self.palavras_medias = ['JAZIDAS',  'SEDIMENTAR',  'METEORITO', 'ARGILITOS',
+                                'GEOLOGIA', 'ATMOSFERA', 'TRANSPORTE', 'HORIZONTE', 'ESTRUTURA', 'SATELITE']
+
+        self.palavras_dificeis = ['SENSORIAMENTO REMOTO', 'TOPOGRAFIA', 'SISMOLOGIA', 'TEMPO GEOLOGICO',
+                                  'PLACAS TECTONICAS', 'GEOPROCESSAMENTO', 'CONGLOMERADO',  'QUATERNARIO', 'FANEROZOICO',  'PRE-CAMBRIANO']
 
     def nivel_facil(self):
         # Embaralhando a ordem das palavras
         random.shuffle(self.palavras_faceis)
         pontos_no_nivel = 0
 
-        for i, palavra in enumerate(self.palavras_faceis, start=1):
+        for i, palavra in enumerate(self.palavras_faceis[:3], start=1):
             system('cls')
             chances = 7
             print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
+            print(f'\n\nNível Fácil - Rodada {i}'.center(50))
             resultado = forca(palavra, chances, 250)
             pontos_no_nivel += resultado[1]
 
@@ -132,11 +133,11 @@ class Geociencias(Tema):
         random.shuffle(self.palavras_medias)
         pontos_no_nivel = 0
 
-        for i, palavra in enumerate(self.palavras_medias, start=1):
+        for i, palavra in enumerate(self.palavras_medias[:3], start=1):
             system('cls')
             chances = 7
             print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
+            print(f'\n\nNível Médio - Rodada {i}'.center(50))
             resultado = forca(palavra, chances, 250)
             pontos_no_nivel += resultado[1]
 
@@ -151,11 +152,11 @@ class Geociencias(Tema):
         random.shuffle(self.palavras_dificeis)
         pontos_no_nivel = 0
 
-        for i, palavra in enumerate(self.palavras_dificeis, start=1):
+        for i, palavra in enumerate(self.palavras_dificeis[:3], start=1):
             system('cls')
             chances = 7
             print(f'Você tem {chances} chances')
-            print(f'\n\nRodada {i}'.center(50))
+            print(f'\n\nNível Difícil - Rodada {i}'.center(50))
             resultado = forca(palavra, chances, 250)
             pontos_no_nivel += resultado[1]
 
