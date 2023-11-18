@@ -45,10 +45,8 @@ class Estatistica(Tema):
 
         for i, palavra in enumerate(self.palavras_faceis[:3], start=1):
             system('cls')
-            chances = 7
-            print(f'Você tem {chances} chances')
-            print(f'\n\nNível Fácil - Rodada {i}'.center(50))
-            resultado = forca(palavra, chances, 250)
+            print(f'\nNível Fácil - Rodada {i}'.center(50))
+            resultado = forca(palavra, 250)
             pontos_no_nivel += resultado[1]
 
             if not resultado[0]:
@@ -64,10 +62,8 @@ class Estatistica(Tema):
 
         for i, palavra in enumerate(self.palavras_medias[:3], start=1):
             system('cls')
-            chances = 7
-            print(f'Você tem {chances} chances')
-            print(f'\n\nNível Médio - Rodada {i}'.center(50))
-            resultado = forca(palavra, chances, 500)
+            print(f'\nNível Médio - Rodada {i}'.center(50))
+            resultado = forca(palavra, 500)
             pontos_no_nivel += resultado[1]
 
             if not resultado[0]:
@@ -83,10 +79,8 @@ class Estatistica(Tema):
 
         for i, palavra in enumerate(self.palavras_dificeis[:3], start=1):
             system('cls')
-            chances = 7
-            print(f'Você tem {chances} chances')
-            print(f'\n\nNível Difícil - Rodada {i}'.center(50))
-            resultado = forca(palavra, chances, 1000)
+            print(f'\nNível Difícil - Rodada {i}'.center(50))
+            resultado = forca(palavra, 1000)
             pontos_no_nivel += resultado[1]
 
             if not resultado[0]:
@@ -119,7 +113,7 @@ class Geociencias(Tema):
                                   'GEOLOGIA', 'ATMOSFERA', 'TRANSPORTE', 'HORIZONTE', 'ESTRUTURA', 'SATELITE']
 
         self.__palavras_dificeis = ['SENSORIAMENTO REMOTO', 'TOPOGRAFIA', 'SISMOLOGIA', 'TEMPO GEOLOGICO',
-                                    'PLACAS TECTONICAS', 'GEOPROCESSAMENTO', 'CONGLOMERADO',  'QUATERNARIO', 'FANEROZOICO',  'PRE-CAMBRIANO']
+                                    'PLACAS TECTONICAS', 'GEOPROCESSAMENTO', 'CONGLOMERADO',  'QUATERNARIO', 'FANEROZOICO',  'PRE CAMBRIANO']
 
     def nivel_facil(self):
         # Embaralhando a ordem das palavras
@@ -128,10 +122,8 @@ class Geociencias(Tema):
 
         for i, palavra in enumerate(self.palavras_faceis[:3], start=1):
             system('cls')
-            chances = 7
-            print(f'Você tem {chances} chances')
-            print(f'\n\nNível Fácil - Rodada {i}'.center(50))
-            resultado = forca(palavra, chances, 250)
+            print(f'\nNível Fácil - Rodada {i}'.center(50))
+            resultado = forca(palavra, 250)
             pontos_no_nivel += resultado[1]
 
             if not resultado[0]:
@@ -147,10 +139,8 @@ class Geociencias(Tema):
 
         for i, palavra in enumerate(self.palavras_medias[:3], start=1):
             system('cls')
-            chances = 7
-            print(f'Você tem {chances} chances')
-            print(f'\n\nNível Médio - Rodada {i}'.center(50))
-            resultado = forca(palavra, chances, 250)
+            print(f'\nNível Médio - Rodada {i}'.center(50))
+            resultado = forca(palavra, 250)
             pontos_no_nivel += resultado[1]
 
             if not resultado[0]:
@@ -166,10 +156,8 @@ class Geociencias(Tema):
 
         for i, palavra in enumerate(self.palavras_dificeis[:3], start=1):
             system('cls')
-            chances = 7
-            print(f'Você tem {chances} chances')
-            print(f'\n\nNível Difícil - Rodada {i}'.center(50))
-            resultado = forca(palavra, chances, 250)
+            print(f'\nNível Difícil - Rodada {i}'.center(50))
+            resultado = forca(palavra, 250)
             pontos_no_nivel += resultado[1]
 
             if not resultado[0]:

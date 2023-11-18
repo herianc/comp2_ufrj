@@ -2,21 +2,27 @@
 from os import system
 
 
-def forca(palavra, chances, pontos) -> bool:
+def forca(palavra, pontos) -> bool:
+    chances = 7
     letras_tentadas = []
     # Usando a estrutura de dados Set para eliminar repetições
     letras_tentadas = set(letras_tentadas)
+    
 
     while True:
-
+    
+        palavra_saida = ''
+        print(f'Você tem {chances} chances')
+        
         for letra in palavra:
             if letra == ' ':
                 letras_tentadas.add(' ')
             if letra in letras_tentadas:
-                print(letra, end=' ')
+                palavra_saida += letra
             else:
-                print('_', end=' ')
+                palavra_saida += '_'
 
+        print(palavra_saida)
         tentativa = input('\n\nLetra: ').upper()
 
         # Tratando os erros de entrada
@@ -49,3 +55,9 @@ def forca(palavra, chances, pontos) -> bool:
         if ganhou:
             print(f'\nAcertou! A palavra é {palavra}')
             return ganhou, pontos
+        
+        
+    
+
+
+forca('BANANA', 650)
