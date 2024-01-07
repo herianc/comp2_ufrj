@@ -17,4 +17,4 @@ __Ementa__:
 - Bibliotecas para aplicações matemáticas (Numpy e Scipy) e plotagem de gráficos aplicações gráficas (matplotlib)
 - Construção de código organizado, reutilizável e legível, seguindo princípios das boas práticas de programação.
 
-
+Trabalho final da disciplina: [Sistema de Informação dos dados de Poluição do Rio](https://github.com/herianc/dados_arRJ)
